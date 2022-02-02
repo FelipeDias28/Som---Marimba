@@ -11,60 +11,32 @@ class MarimbaApp extends StatelessWidget {
       player.play(nota);
     }
 
+    Expanded criarBotao({String nota, Color cor}) {
+      return Expanded(
+        child: TextButton(
+          onPressed: () {
+            tocarSom(nota);
+          },
+          child: null,
+          style: TextButton.styleFrom(backgroundColor: cor),
+        ),
+      );
+    }
+
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota1.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.green),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota2.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.blue),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota3.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.yellow),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota4.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.red),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota5.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.grey),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota6.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.purple),
-              ),
-              TextButton(
-                onPressed: () {
-                  tocarSom("nota7.wav");
-                },
-                child: null,
-                style: TextButton.styleFrom(backgroundColor: Colors.brown),
-              ),
+              criarBotao(nota: "nota1.wav", cor: Colors.teal),
+              criarBotao(nota: "nota2.wav", cor: Colors.blue),
+              criarBotao(nota: "nota3.wav", cor: Colors.yellow),
+              criarBotao(nota: "nota4.wav", cor: Colors.red),
+              criarBotao(nota: "nota5.wav", cor: Colors.grey),
+              criarBotao(nota: "nota6.wav", cor: Colors.purple),
+              criarBotao(nota: "nota7.wav", cor: Colors.brown),
             ],
           ),
         ),
